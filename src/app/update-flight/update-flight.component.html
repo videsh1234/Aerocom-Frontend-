@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="update-flight.component.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container" [hidden]="submitted" style="width: 600px;">
+            <form (ngSubmit)="onSubmit()" ngNativeValidate >
+                <h2>Update Flight Details</h2>
+                <div class="form-group-1">
+                    <h3>Flight Number</h3>
+                    <input type="text" style=" font-size: 20px;" class="form-control" id="flightNumber" required [(ngModel)]="flight.flightNumber" name="flightNumber">
+                    <h3>Flight Name</h3>
+                    <input type="text" style=" font-size: 20px;"  class="form-control" id="flightName" required [(ngModel)]="flight.flightName" name="flightName">
+                    <h3>Source</h3>
+                    <input type="text" style=" font-size: 20px;" class="form-control" id="fromLocation" required [(ngModel)]="flight.fromLocation" name="fromLocation">
+                    <h3>Destination</h3>
+                    <input type="text" style=" font-size: 20px;" class="form-control" id="toLocation" required [(ngModel)]="flight.toLocation" name="toLocation">
+                    <h3>Departure</h3>
+                    <input type="text" style=" font-size: 20px;" class="form-control" id="departureTime" required [(ngModel)]="flight.departureTime" name="departureTime">
+                    <h3>Arrival</h3>
+                    <input type="text" style=" font-size: 20px; " class="form-control" id="arrivalTime" required [(ngModel)]="flight.arrivalTime" name="arrivalTime">
+                    <h3>Date</h3>
+                    <input type="date" style=" font-size: 20px;" class="form-control" id="date" required [(ngModel)]="flight.date" name="date">
+                    <h3>Price</h3>
+                    <input type="text" style=" font-size: 20px;" class="form-control" id="price" required [(ngModel)]="flight.price" name="price">
+                    
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"  required="true"/>
+                    <label for="agree-term" class="label-agree-term"><span><span></span></span>Confirm updates</label>
+                </div>
+                <div class="form-submit text-center">
+                    <input type="submit"  name="submit" id="submit" class="submit" value="UPDATE" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

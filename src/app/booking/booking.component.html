@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Booking Form HTML Template</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="booking" class="section">
+	<div class="section-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					
+					<div class="seating">
+						
+						<img src="assets/seating3.png" style="width:600px; height:650px" >
+					</div>
+				</div>
+				<div class="col-md-7 col-md-offset-1">
+					<div class="booking-form">
+						<h1 style="padding-bottom:20px ;">Book your flight today!</h1>
+								
+						<form  (ngSubmit)="onSubmit()">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Flying from</span>
+
+										<input class="form-control" type="text" value={{flight.fromLocation}} placeholder="City or airport">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Flyning to</span>
+										<input class="form-control" type="text" value={{flight.toLocation}} placeholder="City or airport">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Flight Name</span>
+										<input class="form-control" type="text" value={{flight.flightName}} placeholder="City or airport">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Email</span>
+										<input type="text" [(ngModel)]="email" name="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors
+											}" placeholder="Email">
+
+										
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Name of Passenger</span>
+										<input type="text" [(ngModel)]="passengerName" name="passengerName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.passengerName.errors }" placeholder="Name">
+											
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Age Of Passenger</span>
+										<input type="text" [(ngModel)]="passengerAge" name ="passengerAge" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.passengerAge.errors }"placeholder="Age">
+											
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Price per seat</span>
+										<input [(ngModel)]="price"  name="price" value={{flight.price}} class="form-control"  placeholder="City or airport">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Departure Date</span>
+										<input type="date" [(ngModel)]="bookingDate" name="bookingDate" value={{flight.date}} class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bookingDate.errors }">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Seat Number</span>
+											<!-- <select  multiple class="form-control" formControlName="seatId" [ngClass]="{ 'is-invalid': submitted && f.seatId.errors }"> -->
+											<div class="form-control">
+											<ng-select
+
+											[items]="seats"
+
+											  bindLabel="name"
+
+											  placeholder="SeatNumber"
+
+											  appendTo="body"
+
+											  [(ngModel)]="seatId.name"
+
+											 [ngModelOptions]="{standalone: true}" 
+											 
+											  [ngClass]="{ 'is-invalid': submitted && f.seatId.errors }"
+
+											  [multiple]="true">
+
+											   <ng-option *ngFor="let seat of seats" [value]="seat">{{seat.name}}</ng-option>
+
+											</ng-select> 
+											</div>
+											<span class="select-arrow"></span>
+											
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Passport Number</span>
+											<input type="text" [(ngModel)]="passportNumber"  name="passportNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.passportNumber.errors }"placeholder="Passport Number">
+											 
+										</div>
+									</div>
+								</div>
+					
+							<div class="form-btn">
+								<button (click)="pay(flight.price*seatId.name.length)" class="submit-btn">Book Flight</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+
+
+</html>

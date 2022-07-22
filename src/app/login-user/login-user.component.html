@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>User Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="login-user.component.css">
+</head>
+<body style="background-color: #007bff;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" ngNativeValidate>
+					<div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                    <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+					<span class="login100-form-title p-b-43">
+						User Login
+					</span>
+					<br>
+					
+					<div class="wrap-input100 validate-input">
+						<input  style=" font-size: 20px;"class="form-control" type="text" id="username" [(ngModel)]="username"
+						name="username" required>
+						
+						<span class="label-input100">Email</span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input" >
+						<input style=" font-size: 20px;" class="form-control" type="password"  [(ngModel)]="password" id="password" name="password" required>
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button  (click)=checkLoginUser() class="login100-form-btn">
+							Login
+						</button>
+					</div>
+					<br>
+					<br>
+					<div class="text-center ">
+						<span class="login100-form-title p-b-43">
+							
+                            <a routerLink="/registeruser" routerLinkActive="active" class="txt1">sign up</a> 
+						</span>
+					</div>
+
+				</form>
+
+				<div class="login100-more" style="background-image: url('assets/background_2.jpg') ; height:500px;">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	
+
+
+</body>
+</html>

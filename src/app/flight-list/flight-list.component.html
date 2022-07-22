@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="flight-list.component.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<h4 class="text-left mb-4"><a routerLink="/addflight" routerLinkActive="active" class="btn btn-success">ADD flight</a></h4>
+				<div class="col-md-6 text-center mb-2">
+					<h2 class="heading-section">List Of Flights</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">Flight Details</h4>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+                            <th>Flight Info</th>
+                            
+                            <th>Source</th>
+                            <th>Destination</th>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>TicKet Price</th>
+                            <th>Date</th>
+                            <th>Update</th>
+							<th>Cancel</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr *ngFor="let flight of flights | async">
+                            <td>{{ flight.flightNumber }} -{{ flight.flightName }}</td>
+                            
+                            <td>{{ flight.fromLocation }}</td>
+                            <td>{{ flight.toLocation }}</td>
+                            <td>{{flight.departureTime}}</td>
+                            <td>{{flight.arrivalTime}}</td>
+                            <td>{{flight.price}}</td>
+                            <td>{{flight.date}}</td>
+                            
+                            <td>
+                               <button (click)="editFlight(flight.flightNumber)" class="btn btn-secondary" style="margin-left: 5px">Update</button></td>
+							  
+                            <td><button (click)="deleteFlight(flight.id)" class="btn btn-danger" style="margin-left: 40px">Delete</button>
+                            </td>
+					      </tr>  
+					      
+					    
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	</body>
+</html>
+

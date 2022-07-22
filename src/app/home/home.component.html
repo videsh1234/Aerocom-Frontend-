@@ -1,0 +1,73 @@
+<head>
+    <title>Booking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Poppins">
+
+    
+</head>
+<style type="text/css">
+            label{
+        color: rgb(16, 26, 216);
+    }
+</style>
+<body>			
+	<div class="background-wrapper" style="background-image: url(assets/background.png); width: auto; height: 510px;">	
+	<!--header-->
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+							<div class="col-md-6">
+								
+								<select class="form-control" formControlName="fromLocation" [ngClass]="{ 'is-invalid': submitted && f.fromLocationerrors }">
+									<option value="">City</option>
+									<option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+								 </select>
+								 <span class="form-label">Source</span>
+								 <div *ngIf="submitted && f.fromLocation.errors" class="invalid-feedback">
+									<div *ngIf="f.fromLocation.errors.required">Location is required</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<select class="form-control" formControlName="toLocation" [ngClass]="{ 'is-invalid': submitted && f.toLocation.errors }">
+									<option value="">City</option>
+									<option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+								 </select>
+								 <span class="form-label">Destination</span>
+								 <div *ngIf="submitted && f.toLocation.errors" class="invalid-feedback">
+									<div *ngIf="f.toLocation.errors.required">Location is required</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+									<div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+										<div *ngIf="f.date.errors.required">Date is required</div>
+									<span class="form-label">Date</span>
+									</div>
+								</div>
+							</div>
+							
+							<br>
+							<div class="col-md-4">
+								<div class="form-btn">
+									<button routerLink="/" routerLinkActive="active" class="submit-btn">Check Flight</button>
+								</div>
+							</div>
+						
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>

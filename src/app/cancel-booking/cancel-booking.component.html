@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>User cancel ticket</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="cancel-booking.component.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+				<div class="col-md-12 text-center mb-2">
+					<h2 class="heading-section">User's Flight Details</h2>
+				</div>
+		</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap" id="printId" >
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th>Flight No.</th>
+							<th>Name of Passenger</th>
+					        <th>From</th>
+                            <th>Departure Time</th>
+                            <th>To</th>
+                            <th>Arrival Time</th>
+                            <th>Price</th>
+							<th>Booking Details</th>
+                            <th>Cancel</th>
+							
+					      </tr>
+					    </thead>
+					    <tbody>
+							<tr *ngFor="let b of bookingDetails | async">
+								<th scope="row" class="scope" >{{ b.flight.flightNumber }} - {{ b.flight.flightName }}</th>
+								<td>{{b.passengerName}}</td>
+								<td>{{b.flight.fromLocation}}</td>
+								<td>{{b.flight.departureTime}}</td>
+								<td>{{b.flight.toLocation}}</td>
+								<td>{{b.flight.arrivalTime}}</td>
+								<td>{{b.price*b.seatId.length}}</td>
+								<td><button (click)="viewDetailsById(b.bookingId)"
+									class="btn btn-success">View Detail</button></td>	
+								<td><button (click)="cancelBooking(b.passportNumber)"
+									class="btn btn-success">Cancel</button></td>
+								
+								
+							  </tr>
+					      
+							  
+					      
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+	
+	</section>
+    <router-outlet>
+        
+    </router-outlet>
+
+	</body>
+</html>
+

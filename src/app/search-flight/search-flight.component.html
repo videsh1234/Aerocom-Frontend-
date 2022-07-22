@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 03</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="search-flight.component.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-2">
+					<h2 class="heading-section">Available Flights</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">Flight Details </h4>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th>Flight No. </th>
+					        <th>From</th>
+                            <th>Departure Time</th>
+                            <th>To</th>
+                            <th>Arrival Time</th>
+                            <th>Price</th>
+                            <th>Booking</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+
+					      <tr *ngFor="let f of flights | async">
+					        <th scope="row" class="scope" >{{ f.flightNumber }} - {{ f.flightName }}</th>
+					        <td>{{f.fromLocation}}</td>
+					        <td>{{f.departureTime}}</td>
+					        <td>{{f.toLocation}}</td>
+					        <td>{{f.arrivalTime}}</td>
+                            <td>{{f.price}}</td>
+					        <td><a (click)="flightDetails(f.flightNumber)"
+								class="btn btn-primary">Book now</a></td>
+					      </tr>
+                          
+					      
+					      
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	</body>
+</html>
+

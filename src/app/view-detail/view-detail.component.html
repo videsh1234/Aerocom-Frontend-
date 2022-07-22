@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Details</title>
+
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="view-detail.component.css">
+</head>
+<body>
+
+  <div class="main">
+
+      <div class="container" *ngIf="bookings" id="printId" style="width: 600px;">
+      <h1>AEROCOM</h1>
+      aerocom@gmail.com
+      <br>
+      <br>
+      
+      <h2>Booking Details</h2>
+      <div class="form-group-1">
+          <h3>Booking ID</h3>
+          <div class="design" >{{bookings.bookingId}}</div>
+          <h3>Flight Number - Flight Name</h3>
+          <div class="design" >{{bookings.flight.flightNumber}} - {{bookings.flight.flightName}}</div>
+          <h3>Flight Date</h3>
+          <div class="design" >{{bookings.flight.date}}</div>
+          <h3>Passenger Name</h3>
+          <div class="design" >{{bookings.passengerName}}</div>
+          <h3>Passport Number</h3>
+          <div class="design" >{{bookings.passportNumber}}</div>
+          <h3>Seat Number</h3>
+          <div class="design" >{{bookings.seatId}}</div>
+          <h3>Price</h3>
+          <div class="design" >{{bookings.totalAmount}}</div>
+          
+          <h3>Flight From </h3>
+          <div class="design" >{{bookings.flight.fromLocation}} - {{bookings.flight.departureTime}}</div>
+          <h3>Flight To</h3>
+          <div class="design" >{{bookings.flight.toLocation}} - {{bookings.flight.arrivalTime}}</div> 
+
+          
+      </div>
+              
+              
+              <div class="form-submit text-center">
+                <button printTitle="Booking Details" printSectionId="printId" ngxPrint>print</button> 
+              </div>
+          
+      </div>
+
+  </div>
+          
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

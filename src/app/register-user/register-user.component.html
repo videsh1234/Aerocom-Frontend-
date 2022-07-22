@@ -1,0 +1,118 @@
+  
+    <section class="h-100" style="background-color: #007bff;" style="padding-bottom: 40px;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-00">
+            <div class="col">
+              <div class="card card-registration my-4">
+                <div class="row g-0">
+                  <div class="col-xl-6 d-none d-xl-block">
+                    <img src="assets/background_2.jpg"
+                      alt="Sample photo" class="img-fluid"
+                      style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; width: fit-content; height: 550px;" />
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="card-body p-md-5 text-black" style="font-size: 15px;">
+                      <h3 class="mb-5 text-uppercase">User Sign Up</h3>
+                      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                      <div class="row">
+                        <div class="col-md-6 mb-4 ">
+                          <div class="form-outline border-bottom border-dark">
+                            <label class="form-label" >First Name</label>
+                            <input style=" font-size: 20px;" type="text" id="form3Example1m" class="form-control form-control-lg" formControlName="fname" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }"/>
+                            
+                            <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                              <div *ngIf="f.fname.errors.required">First Name is required</div>
+                              <div *ngIf="f.fname.errors.pattern">Inavalid First Name</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline border-bottom border-dark">
+                            <label class="form-label" for="form3Example1n">Last name</label>
+                            <input style=" font-size: 20px;" type="text" id="form3Example1n" class="form-control form-control-lg" formControlName="lname" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }" />
+                            
+                            <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+                              <div *ngIf="f.lname.errors.required">Last Name is required</div>
+                              <div *ngIf="f.lname.errors.pattern">Inavalid First Name</div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="form-outline border-bottom border-dark mb-4" style="width: 50%">
+                        <label class="form-label" for="form3Example8">Phone number</label>
+                        <input style=" font-size: 20px;" type="tel" pattern="[0-9]{10}" id="form3Example8" class="form-control form-control-lg"formControlName="phoneNo" [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }" />
+                        
+                        <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
+                          <div *ngIf="f.phoneNo.errors.required">Phone is required</div>
+                      </div>
+                      </div>
+      
+                      <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+      
+                        <h6 class="mb-0 me-4" style="font-size: 20px;">Gender: </h6>
+      
+                        <div class="form-check form-check-inline mb-0 me-4">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                            value="option1" />
+                          <label class="form-check-label" for="femaleGender">Female</label>
+                        </div>
+      
+                        <div class="form-check form-check-inline mb-0 me-4">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                            value="option2" />
+                          <label class="form-check-label" for="maleGender">Male</label>
+                        </div>
+      
+                        <div class="form-check form-check-inline mb-0">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                            value="option3" />
+                          <label class="form-check-label" for="otherGender">Other</label>
+                        </div>
+      
+                      </div>
+      
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="form3Example9" style="font-size:large">DOB</label>
+                        <input style=" font-size: 20px;" type="date"formControlName="dob" id="form3Example9" class="form-control form-control-lg"[ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                        <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                          <div *ngIf="f.dobe.errors.required">DOB is required</div>
+                      </div>
+              
+                      </div>
+      
+                      <div class="form-outline border-bottom border-dark mb-4">
+                        <label class="form-label" for="form3Example99">Email</label>
+                        <input style=" font-size: 20px;" type="text" formControlName="email" id="form3Example99" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                      </div>
+      
+                      <div class="form-outline border-bottom border-dark mb-4">
+                        <label class="form-label" for="form3Example97">Password</label>
+                        <input style=" font-size: 20px;" type="password" formControlName="password" id="form3Example97" class="form-control form-control-lg"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                      </div>
+      
+                      <div class="form-group">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                  </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+      <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
+    ></script>
